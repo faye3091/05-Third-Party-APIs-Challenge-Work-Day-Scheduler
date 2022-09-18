@@ -14,11 +14,13 @@ var fourPm = $("#16pm");
 var fivePm = $("#17pm");
 var sixPm = $("#18pm");
 
+const showText = document.querySelector(".show-message");
+
 var hour = moment().hours();
 var userInfo;
 var timeLinked;
 
-//Made the time and date show according to the current Date and time
+//Made the time and date show according to the current Date and time and updates by seconds
 var interval = setInterval(function () {
   var momentNow = moment();
   $("#currentDay").text(todaysDate + " at " + momentNow.format("hh:mm:ss A"));
@@ -27,7 +29,7 @@ var interval = setInterval(function () {
 function times() {
   console.log("Current Hour " + hour);
   var time8 = JSON.parse(localStorage.getItem("8 AM"));
-  nineAm.val(time9);
+  eightAm.val(time8);
 
   var time9 = JSON.parse(localStorage.getItem("9 AM"));
   nineAm.val(time9);
@@ -78,6 +80,17 @@ function timeline() {
   });
 }
 
+//This mesage will show when the user description has been entered and saved to localStorage
+function showMessageSaved() {
+  let pText = document.createElement("p");
+  showText.appendChild(pText);
+  pText.textContent = "Appointment added to localStorage!";
+  //show the message for 1.5 seconds
+  setTimeout(function () {
+    pText.style.display = "none";
+  }, 1500);
+}
+
 //will add the function timeline() in order to be able to make it work
 //this will run after loading the whole file
 $(document).ready(function () {
@@ -89,9 +102,11 @@ $(document).ready(function () {
   //to save the texts under the descriptions to localStorage
   $(".saveBtn").on("click", function () {
     userInfo = $(this).siblings(".description").val().trim();
-    console.log(userInfo + "- userinfo");
+    console.log(userInfo + " - userinfo");
     timeLinked = $(this).siblings(".hour").text().trim();
-    console.log(timeLinked + "- timelinked");
+    console.log(timeLinked + " - timelinked");
     localStorage.setItem(timeLinked, JSON.stringify(userInfo));
+    //when the saveBtn is clicked, then the message will show that it has been saved to localStorage
+    showMessageSaved();
   });
 });

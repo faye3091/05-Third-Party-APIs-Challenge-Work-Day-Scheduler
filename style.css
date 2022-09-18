@@ -21,6 +21,12 @@ textarea {
   border-bottom: 10px solid black;
 }
 
+/* style for the show-message */
+.show-message {
+  text-align: center;
+  color: red;
+}
+
 .description {
   white-space: pre-wrap;
 }
