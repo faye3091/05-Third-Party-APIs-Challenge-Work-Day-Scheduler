@@ -98,7 +98,6 @@ $(document).ready(function () {
   times();
   timeline();
 
-  //eventListeners
   //to save the texts under the descriptions to localStorage
   $(".saveBtn").on("click", function () {
     userInfo = $(this).siblings(".description").val().trim();
@@ -108,5 +107,13 @@ $(document).ready(function () {
     localStorage.setItem(timeLinked, JSON.stringify(userInfo));
     //when the saveBtn is clicked, then the message will show that it has been saved to localStorage
     showMessageSaved();
+  });
+
+  //this is to clear the data in all the descriptions
+  $(".clear-storage").on("click", function () {
+    //this is to clear the data in the localStorage
+    localStorage.clear();
+    //This will go back to the original times
+    times();
   });
 });

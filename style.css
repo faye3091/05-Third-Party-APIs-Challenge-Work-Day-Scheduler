@@ -27,6 +27,13 @@ textarea {
   color: red;
 }
 
+/* style for the clear-storage button */
+.clear-storage {
+  background-color: aquamarine;
+  border-radius: 3rem;
+  line-height: 25px;
+}
+
 .description {
   white-space: pre-wrap;
 }
@@ -46,6 +53,8 @@ textarea {
   background-color: #ffffff;
   color: #000000;
   border-top: 1px dashed #000000;
+  display: flex;
+  align-items: center;
 }
 
 .past {
@@ -69,9 +78,34 @@ textarea {
   border-bottom-right-radius: 15px;
   background-color: #06aed5;
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .saveBtn i:hover {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
+}
+
+/* Mobile screen */
+@media (max-width: 480px) {
+  .time-block {
+    height: auto;
+  }
+
+  .hour {
+    justify-content: center;
+  }
+}
+
+/* Tablet screen */
+@media (min-width: 481px) and (max-width: 1024px) {
+  .time-block {
+    height: auto;
+  }
+
+  .hour {
+    justify-content: center;
+  }
 }
