@@ -97,6 +97,9 @@ textarea {
   .hour {
     justify-content: center;
   }
+  .saveBtn {
+    min-height: 30px;
+  }
 }
 
 /* Tablet screen */
